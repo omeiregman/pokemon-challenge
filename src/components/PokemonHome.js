@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import './css/style.css';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchHomePokemons } from '../actions/pokemonActions';
 
+import './css/style.css';
+
+
 class PokemonHome extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.onClickShowEvolution = this.onClickShowEvolution.bind(this);
+  }
 
   componentWillMount() {
     this.props.fetchHomePokemons();
@@ -15,17 +24,31 @@ class PokemonHome extends Component {
   
   }
 
+  onClickShowEvolution = (e) => {
+    e.preventDefault();
+    console.log("Show Evo Clicked");
+    
+  }
+
   render() {
-    const pokemonItems = this.props.pokemons.map(pokemon => (
-      <div key = {pokemon}>
-        <h3>{pokemon.name}</h3>
-        <p>{pokemon.url}</p>
+    const pokemonItems = this.props.pokemons.map(pokemon => 
+      (
+      <div key={pokemon}>
+        <div className="row">
+        <div className="col-md-8">
+          <h3>{pokemon.name}</h3>
+        </div>
+        <div className="col-md-4">
+          <button className="btn btn-info" onClick={this.onClickShowEvolution}>Show Evolution Chain</button>
+        </div>
       </div>
+      <hr></hr>
+      </div>
+      
     ))
     return(
       <div className="content">
-        <h2>Pokemons</h2>
-        {pokemonItems}
+       {pokemonItems}
       </div>
     );
   }

@@ -11,3 +11,6 @@ export const fetchHomePokemons = () => dispatch => {
         }));
 }
 
+// export const fetchPokemonEvolution = (pokemon) => dispatch => {
+//   fetch('')
+// }

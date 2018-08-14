@@ -1,4 +1,35 @@
-.content {
-  width: 60%;
-  margin:auto;
+a {
+  text-decoration: none !important;
 }
+
+nav {
+  background: rgb(241, 191, 82);
+}
+
+nav ul {
+  float: right;
+}
+
+nav h4 {
+  padding: 1% 0 1% 5%;
+}
+
+.content {
+  
+  width: 60%;
+  margin: 5% auto;
+  border: 1px solid rgb(241, 191, 82);
+  padding: 5%;
+}
+
+.listname {
+  font-size: 1.2em;
+
+}
+
+.spinner {
+  margin: auto 0;
+  width: 50%;
+  text-align: center;
+}
+

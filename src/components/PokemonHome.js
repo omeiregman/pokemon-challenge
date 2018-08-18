@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchHomePokemons, getPokemonData, getPokemonEvolutionChain, fetchHomePokemonsNext } from '../actions/pokemonActions';
+import Search from './Search';
 
 import img_spinner from "./img/spinner.gif";
 import './css/style.css';
@@ -102,6 +103,9 @@ class PokemonHome extends Component {
     return(
       <div className="content">
         <div>
+          <div className="search">
+           <span>Search Pokemon: </span> <Search />
+          </div>
           {pokemonItems}
           <nav>
               <ul className="pagination">

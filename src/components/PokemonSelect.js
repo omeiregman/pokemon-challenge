@@ -54,8 +54,8 @@ class PokemonSelect extends Component {
             return (
               <div key={pokemon.name}>
                 <div className="row">
-                <div className="col-md-8">
-                  <h3>{pokemon.name}</h3>
+                <div className="col-md-8 listname">
+                  <p>{pokemon.name}</p>
                 </div>
                 <Link to={`/pokemon/${pokemon.name}`}>
                 <div className="col-md-4">

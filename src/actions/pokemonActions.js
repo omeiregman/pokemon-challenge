@@ -1,4 +1,4 @@
-import { FETCH_HOME_POKEMONS, FETCH_SELECTED_POKEMON_DATA, DATA_LOADING, FETCH_SELECTED_POKEMON_EVOLUTION } from './types';
+import { FETCH_HOME_POKEMONS, FETCH_ALL_POKEMONS, FETCH_SELECTED_POKEMON_DATA, DATA_LOADING, FETCH_SELECTED_POKEMON_EVOLUTION } from './types';
 
 
 //Fetch Base Pokemon data.. 1 - 20
@@ -93,6 +93,16 @@ export const getPokemonEvolutionChain = (evolutionUrl) => dispatch => {
       return evolutionResult
   }
     
+}
+
+// Get every Pokemon data
+export const fetchAllPokemons = () => dispatch => {
+        fetch("https://pokeapi.co/api/v2/pokemon-species/?limit=802")
+        .then(res => res.json())
+        .then(pokemons => dispatch({
+          type: FETCH_ALL_POKEMONS,
+          payload: pokemons.results
+        }));
 }
 
 //Set state to Loading

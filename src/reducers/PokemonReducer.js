@@ -1,10 +1,11 @@
-import { FETCH_HOME_POKEMONS, FETCH_SELECTED_POKEMON_DATA, DATA_LOADING, FETCH_SELECTED_POKEMON_EVOLUTION } from '../actions/types';
+import { FETCH_HOME_POKEMONS, FETCH_SELECTED_POKEMON_DATA, DATA_LOADING, FETCH_SELECTED_POKEMON_EVOLUTION, FETCH_ALL_POKEMONS } from '../actions/types';
 
 
 const initialState = {
   pokemonList: [],
   pokemonData: {},
-  pokemonEvolution: []
+  pokemonEvolution: [],
+  allPokemons: []
 }
 
 export default function(state = initialState, action) {
@@ -31,6 +32,11 @@ export default function(state = initialState, action) {
         ...state,
         pokemonEvolution: action.payload,
         loading: false
+      };
+    case FETCH_ALL_POKEMONS:
+      return {
+        ...state,
+        allPokemons: action.payload
       }
     default:
     return state;
